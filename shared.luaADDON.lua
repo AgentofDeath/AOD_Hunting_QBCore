@@ -1,38 +1,8 @@
-QBCore = nil
-
-TriggerEvent(AOD.Strings.QBServer, function(obj) QBCore = obj end)
-
-QBCore.Functions.CreateUseableItem('huntingknife', function(source)
-    TriggerClientEvent('AOD-huntingknife',source)
-end)
-
-QBCore.Functions.CreateUseableItem('huntingbait', function(source)
-    TriggerClientEvent('AOD-huntingbait', source)
-end)
-
-RegisterServerEvent('AOD-butcheranimal')
-AddEventHandler('AOD-butcheranimal', function(animal)
-    local xPlayer = QBCore.Functions.GetPlayer(source)
-    local boar = -832573324
-    local deer = -664053099
-    local coyote = 1682622302
-    if animal == boar then
-        xPlayer.Functions.AddItem('boarmeat', AOD.BoarMeat)
-        xPlayer.Functions.AddItem('boartusk', AOD.BoarTusk)
-    elseif animal == deer then
-        xPlayer.Functions.AddItem('deerskin', AOD.DeerSkin)
-        xPlayer.Functions.AddItem('deermeat', AOD.DeerMeat)
-    elseif animal == coyote then
-        xPlayer.Functions.AddItem('coyotefur', AOD.CoyoteFur)
-        xPlayer.Functions.AddItem('coyotemeat', AOD.CoyoteMeat)
-    else
-        print('exploit detected')
-        --add your ban event here for cheating
-    end
-end)
-
-RegisterServerEvent('AOD-hunt:TakeItem')
-AddEventHandler('AOD-hunt:TakeItem', function(item)
-    local xPlayer = QBCore.Functions.GetPlayer(source)
-    xPlayer.Functions.RemoveItem(item, 1)
-end)
+["huntingknife"] 					 = {["name"] = "huntingknife", 			 	["label"] = "Hunting Knife", 		        ["weight"] = 0, 		["type"] = "item", 		["image"] = "", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Hunting Knife."},
+["huntingbait"] 				     = {["name"] = "huntingbait", 			  	["label"] = "Hunting Bait", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "", 		        ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Bait for hunting."},
+["boarmeat"] 					     = {["name"] = "boarmeat", 			 	    ["label"] = "Boar Meat", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Meat of Boar."},
+["boartusk"] 				         = {["name"] = "boartusk", 			  	    ["label"] = "Boar Tusk", 				    ["weight"] = 0, 		["type"] = "item", 		["image"] = "", 		        ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Tusk of a Boar."},
+["deerskin"] 					     = {["name"] = "deerskin", 			 	    ["label"] = "Deer Skin", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Skin of a deer."},
+["deermeat"] 				         = {["name"] = "deermeat", 			    	["label"] = "Deer Meat", 				    ["weight"] = 0, 		["type"] = "item", 		["image"] = "", 		        ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Meat of a deer."},
+["coyotefur"] 					     = {["name"] = "coyotefur", 			 	["label"] = "Coyote Fur", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Fur of a coyote."},
+["coyotemeat"] 				         = {["name"] = "coyotemeat", 			  	["label"] = "Coyote Meat", 				    ["weight"] = 0, 		["type"] = "item", 		["image"] = "", 		        ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Meat of a coyote."},
