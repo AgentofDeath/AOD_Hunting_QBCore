@@ -1,11 +1,13 @@
-QBCore= nil
+local QBCore = exports['qb-core']:GetCoreObject()
+
+--[[QBCore= nil 
 
 Citizen.CreateThread(function ()
     while QBCore == nil do
         TriggerEvent(AOD.Strings.QBClient, function(obj) QBCore = obj end)
         Citizen.Wait(0)
     end
-end)
+end)]]--
 
 local baitexists, baitLocation, HuntedAnimalTable, busy = 0, nil, {}, false
 DecorRegister('MyAnimal', 2) -- don't touch it
