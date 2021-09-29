@@ -1,6 +1,8 @@
-QBCore = nil
+local QBCore = exports['qb-core']:GetCoreObject()
 
-TriggerEvent(AOD.Strings.QBServer, function(obj) QBCore = obj end)
+--[[QBCore = nil
+
+TriggerEvent(AOD.Strings.QBServer, function(obj) QBCore = obj end)]]--
 
 QBCore.Functions.CreateUseableItem('huntingknife', function(source)
     TriggerClientEvent('AOD-huntingknife',source)
