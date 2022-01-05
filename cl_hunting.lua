@@ -1,14 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
---[[QBCore= nil 
-
-Citizen.CreateThread(function ()
-    while QBCore == nil do
-        TriggerEvent(AOD.Strings.QBClient, function(obj) QBCore = obj end)
-        Citizen.Wait(0)
-    end
-end)]]--
-
 local baitexists, baitLocation, HuntedAnimalTable, busy = 0, nil, {}, false
 DecorRegister('MyAnimal', 2) -- don't touch it
 
@@ -19,7 +10,6 @@ isValidZone =  function()
             return true
         end
     end
-
 end
 
 SetSpawn = function(baitLocation)
@@ -66,14 +56,14 @@ SpawnAnimal = function(location)
     SetModelAsNoLongerNeeded(model)
     if AOD.UseBlip then
         local blip = AddBlipForEntity(prey)
-			SetBlipDisplay(blip, 2)
-			SetBlipScale  (blip, 0.85)
-			SetBlipColour (blip, 2)
-			SetBlipAsShortRange(blip, false)
-			BeginTextCommandSetBlipName("STRING")
-			AddTextComponentString(AOD.BlipText)
-			EndTextCommandSetBlipName(blip)
-    end
+		     SetBlipDisplay(blip, 2)
+		     SetBlipScale  (blip, 0.85)
+		     SetBlipColour (blip, 2)
+		     SetBlipAsShortRange(blip, false)
+		     BeginTextCommandSetBlipName("STRING")
+		     AddTextComponentString(AOD.BlipText)
+		     EndTextCommandSetBlipName(blip)
+    		end
     Citizen.CreateThread(function()
         local destination = false
         while not IsPedDeadOrDying(prey) and not destination do
@@ -201,11 +191,11 @@ end)
 
 SpawnBaitItem = function(result)
     local model = `prop_drug_package_02`
-            RequestModel(model)
-            while not HasModelLoaded(model) do Citizen.Wait(10) end
-            local bait = CreateObject(model, result.x , result.y , result.z- 1.0, true, true, true)
-            SetModelAsNoLongerNeeded(model)
-            FreezeEntityPosition(bait, true)
+    RequestModel(model)
+    while not HasModelLoaded(model) do Citizen.Wait(10) end
+    local bait = CreateObject(model, result.x , result.y , result.z- 1.0, true, true, true)
+    SetModelAsNoLongerNeeded(model)
+    FreezeEntityPosition(bait, true)
 end
 
 DeleteBaitItem = function()
@@ -232,8 +222,6 @@ Notify = function(text, timer)
     if timer == nil then
         timer = 5000
     end
-    --exports['mythic_notify']:DoCustomHudText('vrm', text, timer)
-    -- exports.pNotify:SendNotification({layout = 'centerLeft', text = text, type = 'error', timeout = timer})
     QBCore.Functions.Notify(text, "error")
 end
 
