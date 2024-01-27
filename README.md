@@ -1,1 +1,1 @@
-Looking to "upgrade this resource"  If you have any suggestions let me know however.  If via discord (earthy#0001) or via issues here is fine.
+If you want to continue following this project it has been relocated here https://github.com/EFn-Scripts/EFn-Hunting
